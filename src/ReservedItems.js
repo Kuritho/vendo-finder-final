@@ -193,7 +193,7 @@ class ReservedItems extends React.Component {
                 price: parseFloat(item.price)
             }));
 
-            const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/api/Order/CreateOrder', {
+            const response = await fetch('http://160.187.221.146:8585/api/Order/CreateOrder', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
