@@ -317,61 +317,67 @@ class ReservedItems extends React.Component {
     }
 
     renderReceipt = () => {
-        const { vendoName, transactionCode, purchaseTime, isMobile } = this.state;
-        const enhancedReservedItems = this.getEnhancedReservedItems();
-        const totalAmount = enhancedReservedItems.reduce((sum, item) => sum + parseFloat(item.totalPrice || 0), 0).toFixed(2);
+    const { vendoName, transactionCode, purchaseTime, isMobile, totalAmount } = this.state;
+    const enhancedReservedItems = this.getEnhancedReservedItems();
 
-        return (
-            <div id="receipt-container" style={isMobile ? styles.mobileReceiptContainer : styles.receiptContainer}>
-                <h2 style={styles.receiptTitle}>Receipt</h2>
-                <div style={styles.receiptContent}>
-                    <p style={styles.receiptText}>This Receipt can only be claimed at Vendo: {vendoName}</p>
-                    <p style={styles.receiptText}>Please save this Code:</p>
-                    <p style={styles.receiptCode}>{transactionCode}</p>
-                    <p style={styles.receiptDivider}>------------------------------------------</p>
-                    <p style={styles.receiptText}>Note: Do not forget to Download the Receipt</p>
-                    <p style={styles.receiptDivider}>------------------------------------------</p>
-                    <p style={styles.receiptText}>Date: {purchaseTime}</p>
-                    
-                    <div style={styles.receiptItems}>
-                        {enhancedReservedItems.map((item, index) => (
-                            <div key={index} style={styles.receiptItem}>
-                                <div style={styles.receiptItemInfo}>
-                                    <img 
-                                        src={item.imageUrl} 
-                                        alt={item.productName} 
-                                        style={styles.receiptItemImage}
-                                    />
+    return (
+        <div id="receipt-container" style={isMobile ? styles.mobileReceiptContainer : styles.receiptContainer}>
+            <h2 style={styles.receiptTitle}>Receipt</h2>
+            <div style={styles.receiptContent}>
+                <p style={styles.receiptText}>This Receipt can only be claimed at Vendo: {vendoName}</p>
+                <p style={styles.receiptText}>Please save this Code:</p>
+                <p style={styles.receiptCode}>{transactionCode}</p>
+                <p style={styles.receiptDivider}>------------------------------------------</p>
+                <p style={styles.receiptText}>Note: Do not forget to Download the Receipt</p>
+                <p style={styles.receiptDivider}>------------------------------------------</p>
+                <p style={styles.receiptText}>Date: {purchaseTime}</p>
+                
+                <div style={styles.receiptItems}>
+                    {enhancedReservedItems.map((item, index) => (
+                        <div key={index} style={styles.receiptItem}>
+                            <div style={styles.receiptItemInfo}>
+                                <img 
+                                    src={item.imageUrl} 
+                                    alt={item.productName} 
+                                    style={styles.receiptItemImage}
+                                />
+                                <div style={styles.receiptItemDetails}>
                                     <span>{item.productName} (x{item.quantity})</span>
+                                    <span style={styles.itemUnitPrice}>₱{parseFloat(item.price).toFixed(2)} each</span>
                                 </div>
-                                <span>₱{item.totalPrice}</span>
                             </div>
-                        ))}
-                    </div>
-                    
-                    {/* <div style={styles.receiptTotal}>
-                        <span>Total:</span>
-                        <span>₱{totalAmount}</span>
-                    </div> */}
+                            <span style={styles.itemTotalPrice}>₱{item.totalPrice}</span>
+                        </div>
+                    ))}
                 </div>
                 
-                <div style={styles.receiptButtons}>
-                    <button 
-                        style={styles.receiptCloseButton}
-                        onClick={this.closeReceipt}
-                    >
-                        Close
-                    </button>
-                    <button 
-                        style={styles.receiptDownloadButton}
-                        onClick={this.downloadReceipt}
-                    >
-                        Download Receipt
-                    </button>
+                {/* <div style={styles.receiptTotal}>
+                    <span>Subtotal:</span>
+                    <span>₱{totalAmount}</span>
+                </div> */}
+                <div style={styles.receiptTotal}>
+                    <span>Total:</span>
+                    <span style={styles.grandTotal}>₱{totalAmount}</span>
                 </div>
             </div>
-        );
-    }
+            
+            <div style={styles.receiptButtons}>
+                <button 
+                    style={styles.receiptCloseButton}
+                    onClick={this.closeReceipt}
+                >
+                    Close
+                </button>
+                <button 
+                    style={styles.receiptDownloadButton}
+                    onClick={this.downloadReceipt}
+                >
+                    Download Receipt
+                </button>
+            </div>
+        </div>
+    );
+}
 
     render() {
         const { loading, error, vendoName, showReceipt, isMobile } = this.state;
@@ -770,6 +776,23 @@ const styles = {
         ':hover': {
             backgroundColor: '#8A7C88'
         }
+    },
+        receiptItemDetails: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '4px'
+    },
+    itemUnitPrice: {
+        fontSize: '12px',
+        color: '#666'
+    },
+    itemTotalPrice: {
+        fontWeight: 'bold'
+    },
+    grandTotal: {
+        fontWeight: 'bold',
+        fontSize: '18px',
+        color: '#4A4E69'
     },
     receiptDownloadButton: {
         backgroundColor: '#4A4E69',
