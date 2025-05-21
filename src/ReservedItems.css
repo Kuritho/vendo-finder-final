@@ -1,0 +1,8 @@
+.mobile-item {
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+}
+
+.mobile-item:last-child {
+  border-bottom: none;
+}
