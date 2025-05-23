@@ -212,10 +212,10 @@ let vendoData = [
         latitude: 6.946384237309941,
         longitude: 124.88682823304704
     },
-    {
-        id: "5",
-        name: "University of Southern Mindanao - Kidapawan City Campus",
-        latitude: 7.031171602271241,
-        longitude: 125.11383375339688
-    },
+    // {
+    //     id: "5",
+    //     name: "University of Southern Mindanao - Kidapawan City Campus",
+    //     latitude: 7.031171602271241,
+    //     longitude: 125.11383375339688
+    // },
 ]
