@@ -24,38 +24,38 @@ class Vendo extends React.Component {
             const vendoProducts = {
                 '4': [
                     { 
-                        id: 58, 
+                        id: 1027, 
                         alt: "Pampers Small", 
                         price: null, 
                         stock: null, 
                         imageUrl: "/assets/images/pampers-small.png",
-                        apiId: 58
+                        apiId: 1027
                     },
                     { 
-                        id: 59, 
+                        id: 1028, 
                         alt: "Pampers Medium", 
                         price: null, 
                         stock: null, 
                         imageUrl: "/assets/images/pampers-medium.png",
-                        apiId: 59
+                        apiId: 1028
                     },
                     { 
-                        id: 60, 
+                        id: 1029, 
                         alt: "Pampers Large", 
                         price: null, 
                         stock: null, 
                         imageUrl: "/assets/images/pampers-large.png",
-                        apiId: 60
+                        apiId: 1029
                     },
                     { 
-                        id: 61, 
+                        id: 1030, 
                         alt: "Wipes", 
                         price: null, 
                         stock: null, 
                         imageUrl: "/assets/images/wipes.png" 
                     },
                     { 
-                        id: 62, 
+                        id: 1031, 
                         alt: "Tissue", 
                         price: null, 
                         stock: null, 
