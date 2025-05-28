@@ -208,7 +208,7 @@ export default class Map extends React.Component {
 let vendoData = [
     {
         id: "4",
-        name: "Roldan Hospital Vendo",
+        name: "Osorio Diaper Vendo",
         latitude: 6.946384237309941,
         longitude: 124.88682823304704
     },
