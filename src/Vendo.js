@@ -276,7 +276,7 @@ class Vendo extends React.Component {
 
         return (
             <div style={styles.container}>
-                <h1 style={styles.heading}>Welcome: {vendoName}</h1>
+                <h1 style={styles.heading}>Welcome: Osorio Diaper Vendo</h1>
                 <div style={styles.buttonGroup}>
                     <button style={styles.backButton} onClick={this.goBack}>Back to Homepage</button>
                     <button 
